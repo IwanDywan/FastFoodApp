@@ -1,0 +1,10 @@
+C:\Users\Admin\Desktop\Plat-dot-NET-33INF-SSI-SP-A_PROJEKT_Aleksander_Iwaniak\Restauracja Fast Food\bin\Debug\Restauracja Fast Food.exe.config
+C:\Users\Admin\Desktop\Plat-dot-NET-33INF-SSI-SP-A_PROJEKT_Aleksander_Iwaniak\Restauracja Fast Food\bin\Debug\Restauracja Fast Food.exe
+C:\Users\Admin\Desktop\Plat-dot-NET-33INF-SSI-SP-A_PROJEKT_Aleksander_Iwaniak\Restauracja Fast Food\bin\Debug\Restauracja Fast Food.pdb
+C:\Users\Admin\Desktop\Plat-dot-NET-33INF-SSI-SP-A_PROJEKT_Aleksander_Iwaniak\Restauracja Fast Food\obj\Debug\Restauracja Fast Food.csproj.AssemblyReference.cache
+C:\Users\Admin\Desktop\Plat-dot-NET-33INF-SSI-SP-A_PROJEKT_Aleksander_Iwaniak\Restauracja Fast Food\obj\Debug\Restauracja_Fast_Food.Form1.resources
+C:\Users\Admin\Desktop\Plat-dot-NET-33INF-SSI-SP-A_PROJEKT_Aleksander_Iwaniak\Restauracja Fast Food\obj\Debug\Restauracja_Fast_Food.Properties.Resources.resources
+C:\Users\Admin\Desktop\Plat-dot-NET-33INF-SSI-SP-A_PROJEKT_Aleksander_Iwaniak\Restauracja Fast Food\obj\Debug\Restauracja Fast Food.csproj.GenerateResource.cache
+C:\Users\Admin\Desktop\Plat-dot-NET-33INF-SSI-SP-A_PROJEKT_Aleksander_Iwaniak\Restauracja Fast Food\obj\Debug\Restauracja Fast Food.csproj.CoreCompileInputs.cache
+C:\Users\Admin\Desktop\Plat-dot-NET-33INF-SSI-SP-A_PROJEKT_Aleksander_Iwaniak\Restauracja Fast Food\obj\Debug\Restauracja Fast Food.exe
+C:\Users\Admin\Desktop\Plat-dot-NET-33INF-SSI-SP-A_PROJEKT_Aleksander_Iwaniak\Restauracja Fast Food\obj\Debug\Restauracja Fast Food.pdb
