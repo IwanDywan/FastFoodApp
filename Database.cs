@@ -1,4 +1,4 @@
-﻿using System;
+﻿/*using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -72,3 +72,4 @@ namespace Restauracja_Fast_Food
         private readonly string _connectionString = "server=db4free.net;port=3306;database=online_com;uid=online_com;password=QV@LL#2Bc6YNUra";
     }
 }
+*/

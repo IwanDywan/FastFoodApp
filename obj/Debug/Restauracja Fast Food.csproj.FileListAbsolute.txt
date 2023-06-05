@@ -8,8 +8,6 @@ C:\Users\Admin\Desktop\Plat-dot-NET-33INF-SSI-SP-A_PROJEKT_Aleksander_Iwaniak\Re
 C:\Users\Admin\Desktop\Plat-dot-NET-33INF-SSI-SP-A_PROJEKT_Aleksander_Iwaniak\Restauracja Fast Food\obj\Debug\Restauracja Fast Food.csproj.CoreCompileInputs.cache
 C:\Users\Admin\Desktop\Plat-dot-NET-33INF-SSI-SP-A_PROJEKT_Aleksander_Iwaniak\Restauracja Fast Food\obj\Debug\Restauracja Fast Food.exe
 C:\Users\Admin\Desktop\Plat-dot-NET-33INF-SSI-SP-A_PROJEKT_Aleksander_Iwaniak\Restauracja Fast Food\obj\Debug\Restauracja Fast Food.pdb
-C:\Users\Admin\Desktop\Plat-dot-NET-33INF-SSI-SP-A_PROJEKT_Aleksander_Iwaniak\Restauracja Fast Food\obj\Debug\Restauracja_Fast_Food.UCDrinks.resources
-C:\Users\Admin\Desktop\Plat-dot-NET-33INF-SSI-SP-A_PROJEKT_Aleksander_Iwaniak\Restauracja Fast Food\obj\Debug\Restauracja_Fast_Food.UCFood.resources
 C:\Users\Admin\Desktop\Plat-dot-NET-33INF-SSI-SP-A_PROJEKT_Aleksander_Iwaniak\Restauracja Fast Food\bin\Debug\BouncyCastle.Crypto.dll
 C:\Users\Admin\Desktop\Plat-dot-NET-33INF-SSI-SP-A_PROJEKT_Aleksander_Iwaniak\Restauracja Fast Food\bin\Debug\Google.Protobuf.dll
 C:\Users\Admin\Desktop\Plat-dot-NET-33INF-SSI-SP-A_PROJEKT_Aleksander_Iwaniak\Restauracja Fast Food\bin\Debug\K4os.Compression.LZ4.dll
@@ -36,3 +34,4 @@ C:\Users\Admin\Desktop\Plat-dot-NET-33INF-SSI-SP-A_PROJEKT_Aleksander_Iwaniak\Re
 C:\Users\Admin\Desktop\Plat-dot-NET-33INF-SSI-SP-A_PROJEKT_Aleksander_Iwaniak\Restauracja Fast Food\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
 C:\Users\Admin\Desktop\Plat-dot-NET-33INF-SSI-SP-A_PROJEKT_Aleksander_Iwaniak\Restauracja Fast Food\bin\Debug\System.Threading.Tasks.Extensions.xml
 C:\Users\Admin\Desktop\Plat-dot-NET-33INF-SSI-SP-A_PROJEKT_Aleksander_Iwaniak\Restauracja Fast Food\obj\Debug\Restauracja Fast Food.csproj.CopyComplete
+C:\Users\Admin\Desktop\Plat-dot-NET-33INF-SSI-SP-A_PROJEKT_Aleksander_Iwaniak\Restauracja Fast Food\obj\Debug\Restauracja_Fast_Food.LoadData.resources
