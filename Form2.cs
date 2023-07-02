@@ -41,5 +41,19 @@ namespace Restauracja_Fast_Food
             }
             
         }
+
+        private void buttonPrint_Click(object sender, EventArgs e)
+        {
+            printPreviewDialog1.Document = printDocument1;
+            printPreviewDialog1.PrintPreviewControl.Zoom= 1;
+            printPreviewDialog1.ShowDialog();
+        }
+
+        private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+            Bitmap bmp = new Bitmap(this.dataGridView1.Width, this.dataGridView1.Height);
+            dataGridView1.DrawToBitmap(bmp, new Rectangle(0, 0, this.dataGridView1.Width, this.dataGridView1.Height));
+            e.Graphics.DrawImage(bmp, 100, 150);
+        }
     }
 }

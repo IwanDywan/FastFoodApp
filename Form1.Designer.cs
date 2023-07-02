@@ -210,6 +210,7 @@ namespace Restauracja_Fast_Food
             // 
             this.textBoxRepay.Location = new System.Drawing.Point(1022, 568);
             this.textBoxRepay.Name = "textBoxRepay";
+            this.textBoxRepay.ReadOnly = true;
             this.textBoxRepay.Size = new System.Drawing.Size(121, 27);
             this.textBoxRepay.TabIndex = 20;
             // 
@@ -225,6 +226,7 @@ namespace Restauracja_Fast_Food
             // 
             this.textBoxTotal.Location = new System.Drawing.Point(1022, 481);
             this.textBoxTotal.Name = "textBoxTotal";
+            this.textBoxTotal.ReadOnly = true;
             this.textBoxTotal.Size = new System.Drawing.Size(121, 27);
             this.textBoxTotal.TabIndex = 18;
             this.textBoxTotal.Text = "0";
@@ -338,6 +340,7 @@ namespace Restauracja_Fast_Food
             // 
             this.textBoxAmount.Location = new System.Drawing.Point(349, 311);
             this.textBoxAmount.Name = "textBoxAmount";
+            this.textBoxAmount.ReadOnly = true;
             this.textBoxAmount.Size = new System.Drawing.Size(121, 27);
             this.textBoxAmount.TabIndex = 11;
             // 
@@ -353,6 +356,7 @@ namespace Restauracja_Fast_Food
             // 
             this.textBoxPrice.Location = new System.Drawing.Point(349, 156);
             this.textBoxPrice.Name = "textBoxPrice";
+            this.textBoxPrice.ReadOnly = true;
             this.textBoxPrice.Size = new System.Drawing.Size(121, 27);
             this.textBoxPrice.TabIndex = 9;
             // 

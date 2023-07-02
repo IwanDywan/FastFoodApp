@@ -18,12 +18,7 @@ namespace Restauracja_Fast_Food
         {
             InitializeComponent();
             con.ConnectionString = @"server=db4free.net;database=fastfoodapp;uid=iwandywan;password=12345678;";
-            //_database = new Database();
-            //_database.Connect();
-            //_database.test();
         }
-
-        //private readonly Database _database;
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -39,6 +34,7 @@ namespace Restauracja_Fast_Food
                 MessageBox.Show("Nie połączono z bazą danych");
                 con.Close();
             }
+            radioButtonFood.Checked = true;
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
@@ -55,9 +51,7 @@ namespace Restauracja_Fast_Food
             radioButtonFood.ForeColor = System.Drawing.Color.BlueViolet;
             radioButtonDrinks.ForeColor = System.Drawing.Color.RosyBrown;
             comboBoxSelect.Items.Clear();
-            comboBoxSelect.Items.Add("Food1");
-            comboBoxSelect.Items.Add("Food2");
-            comboBoxSelect.Items.Add("Food3");
+            loadMenu();
         }
 
         private void radioButtonDrinks_CheckedChanged(object sender, EventArgs e)
@@ -65,39 +59,53 @@ namespace Restauracja_Fast_Food
             radioButtonFood.ForeColor = System.Drawing.Color.RosyBrown;
             radioButtonDrinks.ForeColor = System.Drawing.Color.BlueViolet;
             comboBoxSelect.Items.Clear();
-            comboBoxSelect.Items.Add("Drink1");
-            comboBoxSelect.Items.Add("Drink2");
-            comboBoxSelect.Items.Add("Drink3");
+            loadMenu();
         }
         private void comboBoxSelect_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (comboBoxSelect.SelectedItem.ToString() == "Food1")
-            {
-                textBoxPrice.Text = "50";
+            short id = 0;
+            if(radioButtonFood.Checked){
+                if (comboBoxSelect.SelectedItem.ToString() == "Frytki")
+                {
+                    id = showName("food", comboBoxSelect.SelectedItem.ToString());
+                }
+                else if (comboBoxSelect.SelectedItem.ToString() == "Hamburger")
+                {
+                    id = showName("food", comboBoxSelect.SelectedItem.ToString());
+                }
+                else if (comboBoxSelect.SelectedItem.ToString() == "Pizza")
+                {
+                    id = showName("food", comboBoxSelect.SelectedItem.ToString());
+                }
+                else
+                {
+                    textBoxPrice.Text = "0";
+                }
+                showPrice("food", id);
             }
-            else if (comboBoxSelect.SelectedItem.ToString() == "Food2")
+            else if(radioButtonDrinks.Checked)
             {
-                textBoxPrice.Text = "100";
-            }
-            else if (comboBoxSelect.SelectedItem.ToString() == "Food3")
-            {
-                textBoxPrice.Text = "150";
-            }
-            else if (comboBoxSelect.SelectedItem.ToString() == "Drink1")
-            {
-                textBoxPrice.Text = "5";
-            }
-            else if (comboBoxSelect.SelectedItem.ToString() == "Drink2")
-            {
-                textBoxPrice.Text = "10";
-            }
-            else if (comboBoxSelect.SelectedItem.ToString() == "Drink3")
-            {
-                textBoxPrice.Text = "15";
+                if (comboBoxSelect.SelectedItem.ToString() == "Woda")
+                {
+                    id = showName("drinks", comboBoxSelect.SelectedItem.ToString()); 
+                }
+                else if (comboBoxSelect.SelectedItem.ToString() == "Cola")
+                {
+                    id = showName("drinks", comboBoxSelect.SelectedItem.ToString()); 
+                }
+                else if (comboBoxSelect.SelectedItem.ToString() == "Sok")
+                {
+                    id = showName("drinks", comboBoxSelect.SelectedItem.ToString()); 
+                }
+                else
+                {
+                    textBoxPrice.Text = "0";
+                }
+                showPrice("drinks", id);
             }
             else
             {
-                textBoxPrice.Text = "0";
+                textBoxPrice.Text = "---";
             }
             textBoxQuantity.Text = "";
             textBoxAmount.Text = "";
@@ -107,19 +115,33 @@ namespace Restauracja_Fast_Food
         {
             if(textBoxQuantity.Text.Length > 0)
             {
-                textBoxAmount.Text = (Convert.ToInt64(textBoxPrice.Text) * Convert.ToInt64(textBoxQuantity.Text)).ToString();
+                try
+                {
+                    textBoxAmount.Text = (Convert.ToInt64(textBoxPrice.Text) * Convert.ToInt64(textBoxQuantity.Text)).ToString();
+                }
+                catch(Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
             }
         }
         private void buttonAddItems_Click(object sender, EventArgs e)
         {
-            //Dodanie danych do GridView
-            dataGridView1.Rows.Add(comboBoxSelect.Text, textBoxPrice.Text, textBoxQuantity.Text, textBoxAmount.Text, dateTimePicker1.Text);
-            //Sumowanie należności
-            textBoxTotal.Text = (Convert.ToInt64(textBoxTotal.Text) + Convert.ToInt64(textBoxAmount.Text)).ToString();
-            //Czyszczenie danych
-            textBoxPrice.Text = "";
-            textBoxQuantity.Text = "";
-            textBoxAmount.Text = "";
+            if(textBoxQuantity.Text.ToString() != "0")
+            {
+                //Dodanie danych do GridView
+                dataGridView1.Rows.Add(comboBoxSelect.Text, textBoxPrice.Text, textBoxQuantity.Text, textBoxAmount.Text, dateTimePicker1.Text);
+                //Sumowanie należności
+                textBoxTotal.Text = (Convert.ToInt64(textBoxTotal.Text) + Convert.ToInt64(textBoxAmount.Text)).ToString();
+                //Czyszczenie danych
+                textBoxPrice.Text = "";
+                textBoxQuantity.Text = "";
+                textBoxAmount.Text = "";
+            }
+            else
+            {
+                MessageBox.Show("Nie można kupić 0 produtków");
+            }
         }
         private void buttonDelete_Click(object sender, EventArgs e)
         {
@@ -152,20 +174,14 @@ namespace Restauracja_Fast_Food
                 MySqlCommand cmd = new MySqlCommand("INSERT INTO item_tbl Values('" + dataGridView1.Rows[i].Cells[0].Value + "','" + dataGridView1.Rows[i].Cells[1].Value + "','" + dataGridView1.Rows[i].Cells[2].Value + "','" + dataGridView1.Rows[i].Cells[3].Value + "','" + dataGridView1.Rows[i].Cells[4].Value + "')", con);
                 con.Open();
                 cmd.ExecuteNonQuery();
-                MessageBox.Show("Pomyślnie przesłano dane");
                 con.Close();
             }
-            dataGridView1.Rows.Clear();
-            textBoxTotal.Text = "0";
-            textBoxPay.Text = "";
-            textBoxRepay.Text = "";
+            MessageBox.Show("Pomyślnie przesłano dane");
+            clearGridView();
         }
         private void buttonClear_Click(object sender, EventArgs e)
         {
-            dataGridView1.Rows.Clear();
-            textBoxTotal.Text = "0";
-            textBoxPay.Text = "";
-            textBoxRepay.Text = "";
+            clearGridView();
         }
 
         private void buttonLoad_Click(object sender, EventArgs e)
@@ -175,6 +191,108 @@ namespace Restauracja_Fast_Food
             ldForm.ShowDialog();
             ldForm = null;
             this.Show();
+        }
+
+        void loadMenu()
+        {
+            if(radioButtonFood.Checked) 
+            {
+                string cmdFoodQuery = "SELECT name FROM fastfoodapp.food_menu";
+                MySqlCommand cmd = new MySqlCommand(cmdFoodQuery, con);
+                MySqlDataReader mySqlDataReader;
+                try
+                {
+                    con.Open();
+                    mySqlDataReader = cmd.ExecuteReader();
+                    while (mySqlDataReader.Read())
+                    {
+                        string item = mySqlDataReader.GetString("name");
+                        comboBoxSelect.Items.Add(item);
+                    }
+                    con.Close();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
+            else if(radioButtonDrinks.Checked)
+            {
+                string cmdFoodQuery = "SELECT name FROM fastfoodapp.drinks_menu";
+                MySqlCommand cmd = new MySqlCommand(cmdFoodQuery, con);
+                MySqlDataReader mySqlDataReader;
+                try
+                {
+                    con.Open();
+                    mySqlDataReader = cmd.ExecuteReader();
+                    while (mySqlDataReader.Read())
+                    {
+                        string item = mySqlDataReader.GetString("name");
+                        comboBoxSelect.Items.Add(item);
+                    }
+                    con.Close();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
+            else
+            {
+                comboBoxSelect.Items.Add("---");
+            }           
+        }
+        void clearGridView()
+        {
+            dataGridView1.Rows.Clear();
+            textBoxTotal.Text = "0";
+            textBoxPay.Text = "";
+            textBoxRepay.Text = "";
+        }
+
+        void showPrice(String menu, short id)
+        {
+            string cmdFoodQuery = "SELECT price FROM fastfoodapp."+menu+"_menu WHERE id=" + id.ToString();
+            MySqlCommand cmd = new MySqlCommand(cmdFoodQuery, con);
+            MySqlDataReader mySqlDataReader;
+            try
+            {
+                con.Open();
+                mySqlDataReader = cmd.ExecuteReader();
+                while (mySqlDataReader.Read())
+                {
+                    string price = mySqlDataReader.GetString("price");
+                    textBoxPrice.Text = price;
+                }
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        short showName(String menu, String name)
+        {
+            short id = 0;
+            string cmdFoodQuery = "SELECT id FROM "+menu+"_menu WHERE name=\""+name+"\"";
+            MySqlCommand cmd = new MySqlCommand(cmdFoodQuery, con);
+            MySqlDataReader mySqlDataReader;
+            try
+            {
+                con.Open();
+                mySqlDataReader = cmd.ExecuteReader();
+                while (mySqlDataReader.Read())
+                {
+                    id = Convert.ToInt16(mySqlDataReader.GetString("id"));
+                }
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            return id;
         }
     }
 }
